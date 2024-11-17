@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="{% static 'estilos/carrito.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">GNIUX</div>
+        <nav>
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categorías</a>
+                    <div class="dropdown-content">
+                    {% for i in categorias %}
+                        <a href="#">{{i.nombre}}</a>
+                    {% endfor %}
+                    </div>
+                </li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="carrito.html" class="active">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Carrito de Compras</h1>
+        <div class="carrito-container">
+            <!-- Producto en el carrito -->
+            <div class="producto-carrito">
+
+                <div class="info-producto">
+                    <img src="{% static 'image/megaminx_carbon.jpg' %}" alt="Producto 1">
+                    
+                    <p class="precio">S/. {{productos.precio}}</p>
+                    <p class="descripcion">
+                        DESCRIPCIÓN: {{productos.descripcion}}
+                    </p>
+                </div>
+                <div class="total-producto">
+                    <p>Total: $25.00</p>
+                </div>
+                <button class="btn-eliminar">Eliminar</button>
+            </div>
+            <!-- Repetir para más productos -->
+        </div>
+        <div class="resumen">
+            <h3>Total del Carrito: <span id="total-carrito">$25.00</span></h3>
+            <button class="btn-comprar">Proceder al Pago</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Contacto: tienda@ejemplo.com</p>
+        <p>&copy; 2024 Mi Tienda</p>
+    </footer>
+</body>
+</html>

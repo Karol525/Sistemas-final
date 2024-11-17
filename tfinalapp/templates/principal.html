@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'estilos/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">GNIUX</div>
+        <nav>
+            <ul>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="usuario.html">Perfil</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categorías</a>
+                    <div class="dropdown-content">
+                    {% for i in categorias %}
+                        <a href="#">{{i.nombre}}</a>
+                    {% endfor %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <form class="buscador" action="" method="get">
+            <input type="text" placeholder="Buscar productos..." name="q">
+            <button type="submit">Buscar</button>
+        </form>
+    </header>
+
+    <main>
+        <section id="productos" class="productos">
+            <h1>Productos </h1>
+            <div class="producto-items">
+            {% for i in productos %}
+                <div class="producto">
+                    <a href="{% url 'producto' i.id_producto %}" > 
+                    <img src="{% static 'image/3x3.jpg' %}" alt="Producto 1">
+                    <h2>{{i.nom_prod}}</h2>
+                    <p>S/. {{i.precio}}</p>
+                    </a>
+                    <a href="{% url 'carrito' i.id_producto %}" > <button>  Agregar al carrito</button> </a>
+                </div>
+            {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <p>lalalalal</p>
+        <p>&copy; lalalala</p>
+    </footer>
+</body>
+</html>

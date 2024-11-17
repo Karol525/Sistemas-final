@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Detalle del Producto</title>
+    <link rel="stylesheet" href="{% static 'estilos/producto.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">GNIUX</div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categorías</a>
+                    <div class="dropdown-content">
+                    {% for i in categorias %}
+                        <a href="#">{{i.nombre}}</a>
+                    {% endfor %}
+                    </div>
+                </li>
+                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="producto-detalle">
+            <div class="imagen-producto">
+                <img src="{% static 'image/cubo1.png' %}" alt="Producto Ejemplo">
+            </div>
+            <div class="info-producto">
+                <h1>{{productos.nom_prod}}</h1>
+                <p class="precio">S/. {{productos.precio}}</p>
+                <p class="descripcion">
+                    DESCRIPCIÓN: {{productos.descripcion}}
+                </p>
+                <button class="btn-comprar">Añadir al Carrito</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Contacto: tienda@ejemplo.com</p>
+        <p>&copy; 2024 Mi Tienda</p>
+    </footer>
+</body>
+</html>
+
+

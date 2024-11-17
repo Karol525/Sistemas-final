@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Usuario</title>
+    <link rel="stylesheet" href="{%ctatic 'estilos/usuario.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">GNIUX</div>
+        <nav>
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categorías</a>
+                    <div class="dropdown-content">
+                    {% for i in categorias %}
+                        <a href="#">{{i.nombre}}</a>
+                    {% endfor %}
+                    </div>
+                </li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="perfil.html" class="active">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="perfil">
+            <h1>Perfil del Usuario</h1>
+            <div class="perfil-detalles">
+                <div class="campo">
+                    <label>Nombre:</label>
+                    <p>Juan Pérez</p>
+                </div>
+                <div class="campo">
+                    <label>Correo electrónico:</label>
+                    <p>juan.perez@ejemplo.com</p>
+                </div>
+                <div class="campo">
+                    <label>Dirección:</label>
+                    <p>Av. Principal 123, Ciudad</p>
+                </div>
+                <div class="campo">
+                    <label>Teléfono:</label>
+                    <p>+123 456 789</p>
+                </div>
+                <button class="editar">Editar Perfil</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contacto: tienda@ejemplo.com</p>
+        <p>&copy; 2024 Mi Tienda</p>
+    </footer>
+</body>
+</html>
